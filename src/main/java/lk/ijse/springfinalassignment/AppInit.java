@@ -25,8 +25,5 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
-//    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-//        String tempDir = System.getProperty("java.io.tmpdir");
-//        registration.setMultipartConfig(new MultipartConfigElement(tempDir));
-//    }
+
 }

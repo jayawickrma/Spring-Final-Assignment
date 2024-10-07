@@ -43,7 +43,7 @@ public class WebAppRootConfig {
         vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("lk.ijse.springfinalassignment.Entity.EntityIMPL");
+        factory.setPackagesToScan("lk.ijse.springfinalassignment.Entity.impl");
         factory.setDataSource(dataSource());
         return factory;
     }
