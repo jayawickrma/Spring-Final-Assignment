@@ -29,7 +29,7 @@ public class WebAppRootConfig {
 
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/note-collector?createDatabaseIfNotExist=true");
+        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/POS?createDatabaseIfNotExist=true");
         driverManagerDataSource.setUsername("root");
         driverManagerDataSource.setPassword("Ijse@1234");
         return driverManagerDataSource;
@@ -43,7 +43,7 @@ public class WebAppRootConfig {
         vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("lk.ijse.nodecollecter.Entity.EntityIMPL");
+        factory.setPackagesToScan("lk.ijse.springfinalassignment.Entity.EntityIMPL");
         factory.setDataSource(dataSource());
         return factory;
     }
