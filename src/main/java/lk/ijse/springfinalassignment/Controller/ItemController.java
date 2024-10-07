@@ -1,7 +1,12 @@
 package lk.ijse.springfinalassignment.Controller;
 
+import lk.ijse.springfinalassignment.DTO.impl.ItemDTO;
+import lk.ijse.springfinalassignment.Exeptions.DataPersistExeption;
 import lk.ijse.springfinalassignment.Service.ItemService;
+import lk.ijse.springfinalassignment.Utill.AppUtill;
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +27,21 @@ public class ItemController {
             @RequestPart("itemPrice") String itemPrice
     ){
         try{
+            String itemCode = AppUtill.itemCode();
 
+            ItemDTO itemDTO =new ItemDTO();
+                itemDTO.setItemCode(itemCode);
+                itemDTO.setItemDesc(itemDesc);
+                itemDTO.setItemQTY(itemQTY);
+                itemDTO.setItemPrice(itemPrice);
+
+                itemService.daveItem(itemDTO);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (DataPersistExeption e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
 }
