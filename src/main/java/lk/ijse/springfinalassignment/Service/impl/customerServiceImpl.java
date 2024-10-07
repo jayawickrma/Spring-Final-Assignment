@@ -2,9 +2,10 @@ package lk.ijse.springfinalassignment.Service.impl;
 
 import lk.ijse.springfinalassignment.DTO.impl.CustomerDTO;
 import lk.ijse.springfinalassignment.Service.CustomerService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class customerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {

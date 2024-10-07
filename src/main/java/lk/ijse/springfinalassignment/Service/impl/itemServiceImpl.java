@@ -2,9 +2,10 @@ package lk.ijse.springfinalassignment.Service.impl;
 
 import lk.ijse.springfinalassignment.DTO.impl.ItemDTO;
 import lk.ijse.springfinalassignment.Service.ItemService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class itemServiceImpl implements ItemService {
     @Override
     public ItemDTO daveItem(ItemDTO itemDTO) {
