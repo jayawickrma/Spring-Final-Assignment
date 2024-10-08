@@ -36,6 +36,12 @@ public class customerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO getCustomer(String customerId) {
+        if (customerDAO.existsById(customerId)){
+        CustomerEntity selectCustoemr =customerDAO.getReferenceById(customerId);
+        return mapping.toCustomerDto(selectCustoemr);
+    }else {
+            System.out.println("you entered id not found");
+        }
         return null;
     }
 
