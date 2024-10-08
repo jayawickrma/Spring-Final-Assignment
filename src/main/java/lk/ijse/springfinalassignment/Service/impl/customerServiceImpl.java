@@ -30,7 +30,8 @@ public class customerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        return null;
+        List<CustomerEntity>allCustomer =customerDAO.findAll();
+        return mapping.allCustomers(allCustomer);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class customerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(String customerId) {
-
+            customerDAO.deleteById(customerId);
     }
 
     @Override
