@@ -20,9 +20,9 @@ public class CustomerController {
 
 @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> saveCustomer(
-            @RequestPart("customerName") String customerName,
-            @RequestPart("customerAddress") String customerAddress,
-            @RequestPart("customerContact") String customerContact
+            @RequestPart("customerName") String Name,
+            @RequestPart("customerAddress") String Address,
+            @RequestPart("customerContact") String Contact
     ) {
         try {
             String customerId = AppUtill.customerId();
@@ -30,9 +30,9 @@ public class CustomerController {
             CustomerDTO customerDTO = new CustomerDTO();
 
             customerDTO.setCustomerId(customerId);
-            customerDTO.setCustomerName(customerName);
-            customerDTO.setCustomerAddress(customerAddress);
-            customerDTO.setCustomerContact(customerContact);
+            customerDTO.setCustomerName(Name);
+            customerDTO.setCustomerAddress(Address);
+            customerDTO.setCustomerContact(Contact);
 
             customerService.saveCustomer(customerDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
