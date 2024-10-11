@@ -12,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v3/customer")
 public class CustomerController {
@@ -37,6 +39,10 @@ public class CustomerController {
     public ResponseEntity<Void> deleteCustomer(@PathVariable("cid")String customerId){
             customerService.deleteCustomer(customerId);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerDTO> getAllCustomers(){
+        return customerService.getAllCustomers();
     }
 }
 

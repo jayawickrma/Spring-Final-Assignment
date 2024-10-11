@@ -40,7 +40,7 @@ public class customerServiceImpl implements CustomerService {
         CustomerEntity selectCustoemr =customerDAO.getReferenceById(customerId);
         return mapping.toCustomerDto(selectCustoemr);
     }else {
-            System.out.println("you entered id not found");
+            System.out.println("You entered " +customerId + " as Customer Id Could not found");
         }
         return null;
     }
