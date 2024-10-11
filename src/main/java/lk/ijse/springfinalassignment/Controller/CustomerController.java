@@ -44,5 +44,10 @@ public class CustomerController {
     public List<CustomerDTO> getAllCustomers(){
         return customerService.getAllCustomers();
     }
+    @GetMapping(value = ("/{customerID}"),produces = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerDTO getCustoemr(@PathVariable String customerID){
+        return customerService.getCustomer(customerID);
+
+    }
 }
 
