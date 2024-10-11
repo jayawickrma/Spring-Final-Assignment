@@ -18,21 +18,12 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<Void> saveCustomer(
-            @RequestPart("cName") String Name,
-            @RequestPart("cAddress") String Address,
-            @RequestPart("cContact") String Contact
-    ) {
+
+@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> saveCustomer(CustomerDTO customerDTO) {
+
         try {
-            String customerId = AppUtill.customerId();
-
-            CustomerDTO customerDTO = new CustomerDTO();
-
-            customerDTO.setCustomerId(customerId);
-            customerDTO.setCustomerName(Name);
-            customerDTO.setCustomerAddress(Address);
-            customerDTO.setCustomerContact(Contact);
+            customerDTO.setCustomerId(AppUtill.customerId());
 
             customerService.saveCustomer(customerDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
