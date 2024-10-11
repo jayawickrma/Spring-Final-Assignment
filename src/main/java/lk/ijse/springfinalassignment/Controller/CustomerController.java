@@ -18,7 +18,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.APPLICATION_JSON_VALUE)
+@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Void> saveCustomer(
             @RequestPart("cName") String Name,
             @RequestPart("cAddress") String Address,
