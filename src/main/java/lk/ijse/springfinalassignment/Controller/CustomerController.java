@@ -20,9 +20,9 @@ public class CustomerController {
 
 @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> saveCustomer(
-            @RequestPart("customerName") String Name,
-            @RequestPart("customerAddress") String Address,
-            @RequestPart("customerContact") String Contact
+            @RequestPart("cName") String Name,
+            @RequestPart("cAddress") String Address,
+            @RequestPart("cContact") String Contact
     ) {
         try {
             String customerId = AppUtill.customerId();
