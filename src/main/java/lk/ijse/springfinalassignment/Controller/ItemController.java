@@ -1,6 +1,7 @@
 package lk.ijse.springfinalassignment.Controller;
 
 import lk.ijse.springfinalassignment.DTO.impl.ItemDTO;
+import lk.ijse.springfinalassignment.Entity.impl.ItemEntity;
 import lk.ijse.springfinalassignment.Exeptions.DataPersistExeption;
 import lk.ijse.springfinalassignment.Service.ItemService;
 import lk.ijse.springfinalassignment.Utill.AppUtill;
@@ -37,5 +38,9 @@ public class ItemController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public void getAllItems(){
         itemService.getAllItems();
+    }
+    @GetMapping(value = "/{itemCode}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ItemDTO getItem (String itemCode){
+        return itemService.getItem(itemCode);
     }
 }
