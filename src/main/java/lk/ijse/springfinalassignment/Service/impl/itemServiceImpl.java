@@ -29,7 +29,8 @@ public class itemServiceImpl implements ItemService {
 
     @Override
     public List<ItemDTO> getAllItems() {
-        return null;
+        List<ItemEntity> allitems =itemDAO.findAll();
+        return mapping.allItems(allitems);
     }
 
     @Override
