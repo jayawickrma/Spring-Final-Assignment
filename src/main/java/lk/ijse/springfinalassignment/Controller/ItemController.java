@@ -4,9 +4,7 @@ import lk.ijse.springfinalassignment.DTO.impl.ItemDTO;
 import lk.ijse.springfinalassignment.Exeptions.DataPersistExeption;
 import lk.ijse.springfinalassignment.Service.ItemService;
 import lk.ijse.springfinalassignment.Utill.AppUtill;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,5 +33,9 @@ public class ItemController {
     public ResponseEntity<Void>deleteCustomer(@PathVariable("itemCode") String itemCode){
         itemService.deleteItem(itemCode);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public void getAllItems(){
+        itemService.getAllItems();
     }
 }
