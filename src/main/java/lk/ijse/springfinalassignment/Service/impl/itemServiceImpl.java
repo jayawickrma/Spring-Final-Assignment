@@ -35,7 +35,8 @@ public class itemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO getItem(String itemCode) {
-        return null;
+        ItemEntity getItem =itemDAO.getReferenceById(itemCode);
+        return mapping.toItemDto(getItem);
     }
 
     @Override
