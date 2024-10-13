@@ -41,6 +41,7 @@ public class itemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(String itemCode) {
+        itemDAO.deleteById(itemCode);
 
     }
 
