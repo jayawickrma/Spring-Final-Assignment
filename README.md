@@ -16,6 +16,9 @@ This project is part of a class activity in the IJSE GDSE 67 batch. <br>
 7. **spring-data-jpa**
 8. **mysql-connector-java**
 9. **jackson-databind**
+10. **slf4j-api**
+11. **logback-classic**
+12. **modelmapper**
 
 ### Spring Concepts and Annotations Used:
 1. **@Bean** – Defines an object managed by Spring.
