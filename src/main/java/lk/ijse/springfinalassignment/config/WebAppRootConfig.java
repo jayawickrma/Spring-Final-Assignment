@@ -33,7 +33,7 @@ public class WebAppRootConfig {
         dmds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dmds.setUrl("jdbc:mysql://localhost:3306/springassignmentt?createDatabaseIfNotExist=true");
         dmds.setUsername("root");
-        dmds.setPassword("1234");
+        dmds.setPassword("Ijse@1234");
         return dmds;
     }
     @Bean
