@@ -3,8 +3,9 @@ package lk.ijse.springfinalassignment;
 
 import jakarta.servlet.MultipartConfigElement;
 import jakarta.servlet.ServletRegistration;
-import lk.ijse.springassignment.config.WebAppConfig;
-import lk.ijse.springassignment.config.WebAppRootConfig;
+
+import lk.ijse.springfinalassignment.config.WebAppConfig;
+import lk.ijse.springfinalassignment.config.WebAppRootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {

@@ -1,12 +1,13 @@
 package lk.ijse.springfinalassignment.util;
-import lk.ijse.springassignment.dto.impl.CustomerDTO;
-import lk.ijse.springassignment.dto.impl.ItemDTO;
-import lk.ijse.springassignment.dto.impl.OrderDTO;
-import lk.ijse.springassignment.dto.impl.OrderDetailsDTO;
-import lk.ijse.springassignment.entity.impl.CustomerEntity;
-import lk.ijse.springassignment.entity.impl.ItemEntity;
-import lk.ijse.springassignment.entity.impl.OrderDetailsEntity;
-import lk.ijse.springassignment.entity.impl.OrderEntity;
+
+import lk.ijse.springfinalassignment.dto.impl.CustomerDTO;
+import lk.ijse.springfinalassignment.dto.impl.ItemDTO;
+import lk.ijse.springfinalassignment.dto.impl.OrderDTO;
+import lk.ijse.springfinalassignment.dto.impl.OrderDetailsDTO;
+import lk.ijse.springfinalassignment.entity.impl.CustomerEntity;
+import lk.ijse.springfinalassignment.entity.impl.ItemEntity;
+import lk.ijse.springfinalassignment.entity.impl.OrderDetailsEntity;
+import lk.ijse.springfinalassignment.entity.impl.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;

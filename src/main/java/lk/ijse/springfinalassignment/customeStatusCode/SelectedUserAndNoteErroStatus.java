@@ -1,8 +1,10 @@
 package lk.ijse.springfinalassignment.customeStatusCode;
 
-import lk.ijse.springassignment.dto.CustomerStatus;
-import lk.ijse.springassignment.dto.ItemStatus;
-import lk.ijse.springassignment.dto.OrderStatus;
+
+
+import lk.ijse.springfinalassignment.dto.CustomerStatus;
+import lk.ijse.springfinalassignment.dto.ItemStatus;
+import lk.ijse.springfinalassignment.dto.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
