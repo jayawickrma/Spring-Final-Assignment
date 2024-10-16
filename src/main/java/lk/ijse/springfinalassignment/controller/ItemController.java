@@ -33,11 +33,11 @@ public class ItemController {
             logger.info("Item Saved Successfully With Item Code : ",itemDTO.getItemCode());
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.warn("Fail To Saved Item Bad Request > With Item Code : ",itemDTO.getItemCode());
+            logger.warn("Failed To Saved Item Bad Request > With Item Code : ",itemDTO.getItemCode());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
-            logger.error("Internal Server Erro With Item Code ",itemDTO.getItemCode());
+            logger.error("Internal Server Error With Item Code ",itemDTO.getItemCode());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -48,10 +48,10 @@ public class ItemController {
             logger.info("Item Update Successfully ",itemCode);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.warn("Fail To Update Item> With Item Code : ",itemCode);
+            logger.warn("Failed To Update Item> With Item Code : ",itemCode);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
-            logger.error("Internal Server Erro With Item Code ",itemCode);
+            logger.error("Internal Server Error With Item Code ",itemCode);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -63,13 +63,13 @@ public class ItemController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             itemService.deleteItem(itemCode);
-            logger.info(" Item Delete Successfully ",itemCode);
+            logger.info(" Item Deleted Successfully ",itemCode);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (DataPersistException e){
-            logger.warn(" Item Code Not Found ",itemCode);
+            logger.warn(" Coud not found Item Code ",itemCode);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
-            logger.error(" Internal Server Erro With Item Code ",itemCode);
+            logger.error(" Internal Server Error With Item Code ",itemCode);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -80,7 +80,7 @@ public class ItemController {
            if (itemList.isEmpty()){
                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
            }else {
-               logger.info("All Items Successfully "+itemList.size());
+               logger.info("Successfully Displayed All values "+itemList.size());
                return new ResponseEntity<>(itemList,HttpStatus.OK);
            }
        }catch (Exception e){
@@ -93,7 +93,7 @@ public class ItemController {
     @GetMapping(value = "/{itemCode}")
     public ItemStatus getSelectedItem(@PathVariable("itemCode") String itemCode){
         if (!RegexProcess.itemValidation(itemCode).matches()){
-            logger.warn("Invalid Item Code ",itemCode);
+            logger.warn("You Entered item code is not valid ",itemCode);
             return new SelectedUserAndNoteErroStatus(1,"Item Code is Not Valid");
 
         }
