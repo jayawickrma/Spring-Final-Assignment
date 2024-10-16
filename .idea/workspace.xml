@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53c3cb47-5ba7-4b41-9278-95518cb0fb3c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/springfinalassignment/config/WebAppRootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/springfinalassignment/config/WebAppRootConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/springfinalassignment/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/springfinalassignment/controller/ItemController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +196,7 @@
       <workItem from="1728576606215" duration="10023000" />
       <workItem from="1728841511555" duration="5764000" />
       <workItem from="1729094553486" duration="558000" />
-      <workItem from="1729095146199" duration="2205000" />
+      <workItem from="1729095146199" duration="2579000" />
     </task>
     <task id="LOCAL-00001" summary="config pakage created">
       <option name="closed" value="true" />
@@ -505,7 +502,47 @@
       <option name="project" value="LOCAL" />
       <updated>1729096696655</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="order and order details done and completed project need to add logger">
+      <option name="closed" value="true" />
+      <created>1729097418904</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1729097418904</updated>
+    </task>
+    <task id="LOCAL-00040" summary="customer logger">
+      <option name="closed" value="true" />
+      <created>1729097495087</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1729097495087</updated>
+    </task>
+    <task id="LOCAL-00041" summary="customer logger">
+      <option name="closed" value="true" />
+      <created>1729097533704</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1729097533704</updated>
+    </task>
+    <task id="LOCAL-00042" summary="customer logger">
+      <option name="closed" value="true" />
+      <created>1729097591005</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1729097591005</updated>
+    </task>
+    <task id="LOCAL-00043" summary="adding logger">
+      <option name="closed" value="true" />
+      <created>1729097623864</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1729097623864</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,6 +581,9 @@
     <MESSAGE value="itemService" />
     <MESSAGE value="itemController" />
     <MESSAGE value="order" />
-    <option name="LAST_COMMIT_MESSAGE" value="order" />
+    <MESSAGE value="order and order details done and completed project need to add logger" />
+    <MESSAGE value="customer logger" />
+    <MESSAGE value="adding logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding logger" />
   </component>
 </project>

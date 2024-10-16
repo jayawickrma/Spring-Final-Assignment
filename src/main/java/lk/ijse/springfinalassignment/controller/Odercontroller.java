@@ -29,13 +29,13 @@ public class Odercontroller {
         orderDTO.setOrderId(orderDTO.getOrderId());
         try {
             orderService.saveOrder(orderDTO);
-            logger.error("Saved Order !!");
+            logger.error("Order Saved sucessfuly !!");
             return new  ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
             logger.error("Bad Request !!");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
-            logger.error("Internal Server Erro");
+            logger.error("Internal Server Error");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -43,13 +43,13 @@ public class Odercontroller {
     public ResponseEntity<Void>updateOrder(@PathVariable("orderId")String orderId,@RequestBody OrderDTO orderDTO){
         try {
             orderService.updateOrder(orderId,orderDTO);
-            logger.error("Update Order !!");
+            logger.error("Order Updated !!");
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
             logger.error("Bad Request !!");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
-            logger.error("Internal Server Erro");
+            logger.error("Internal Server Error");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -60,7 +60,7 @@ public class Odercontroller {
            if (orderList.isEmpty()){
                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
            }else {
-               logger.info("Successfully  all orders ",orderList.size());
+               logger.info("Successfully  displayed all orders ",orderList.size());
                return new ResponseEntity<>(orderList,HttpStatus.OK);
            }
        }catch (Exception e){
