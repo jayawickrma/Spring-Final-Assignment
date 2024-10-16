@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
     @GetMapping
     public String healthController(){
-        return "hello health controller working........";
+        return "API is Working Successfully";
     }
 
 }
