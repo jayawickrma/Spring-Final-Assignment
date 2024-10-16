@@ -40,7 +40,6 @@ This project is part of a class activity in the IJSE GDSE 67 batch. <br>
 17. **@Multipart** -there are many request parts.
 18. **@Repository** -Spring will manage this class.this class must be dao layer.
 19. **@Transactional** -transaction will manage by this annottion.
-20. 
 
 ---
 
