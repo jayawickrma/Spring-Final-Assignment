@@ -1,4 +1,4 @@
-package lk.ijse.springassignment;
+package lk.ijse.springfinalassignment;
 
 
 import jakarta.servlet.MultipartConfigElement;
