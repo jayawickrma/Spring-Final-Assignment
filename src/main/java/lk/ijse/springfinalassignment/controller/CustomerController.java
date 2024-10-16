@@ -42,7 +42,7 @@ public class CustomerController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
-            logger.error("Not Responding ",customerDTO.getCustomerId());
+            logger.error("Not Responding... ",customerDTO.getCustomerId());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -50,7 +50,7 @@ public class CustomerController {
     @GetMapping(value = "/{customerId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public CustomerStatus getSelectCustomer(@PathVariable("customerId") String customerId){
         if (!RegexProcess.customerIdMatcher(customerId)){
-            logger.warn("Customer Id Invalid ",customerId);
+            logger.warn("Invalid Customer ID ",customerId);
             return new SelectedUserAndNoteErroStatus(1,"Customer Id is not valid");
         }
         return customerService.getCustomer(customerId);
@@ -63,7 +63,7 @@ public class CustomerController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             customerService.deleteCustomer(customerId);
-            logger.info("Customer Delete Successfully With Customer Id ",customerId);
+            logger.info("Customer Deleted Successfully With Customer Id ",customerId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (CustomerNotFoundException e){
             e.printStackTrace();
