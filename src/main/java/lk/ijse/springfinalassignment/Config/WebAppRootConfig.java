@@ -1,6 +1,7 @@
-package lk.ijse.springfinalassignment.Config;
+package lk.ijse.springassignment.config;
 
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.servlet.annotation.MultipartConfig;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,46 +13,44 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = "lk.ijse.springfinalassignment")
-@EnableJpaRepositories(basePackages = "lk.ijse.springfinalassignment")
+@ComponentScan(basePackages = "lk.ijse.springassignment")
+@EnableJpaRepositories(basePackages = "lk.ijse.springassignment.dao")
 @EnableTransactionManagement
 public class WebAppRootConfig {
     @Bean
     public ModelMapper modelMapper(){
-        return new  ModelMapper();
+
+        return new ModelMapper();
     }
     @Bean
-    public DataSource dataSource() {
-
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/POS?createDatabaseIfNotExist=true");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("Ijse@1234");
-        return driverManagerDataSource;
-
+    public DataSource dataSource(){
+        var dmds = new DriverManagerDataSource();
+        dmds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dmds.setUrl("jdbc:mysql://localhost:3306/springassignmentt?createDatabaseIfNotExist=true");
+        dmds.setUsername("root");
+        dmds.setPassword("1234");
+        return dmds;
     }
-
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("lk.ijse.springfinalassignment.Entity.impl");
+        factory.setPackagesToScan("lk.ijse.springassignment.entity.impl");
         factory.setDataSource(dataSource());
         return factory;
     }
-
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory);
         return txManager;
     }
+
 }

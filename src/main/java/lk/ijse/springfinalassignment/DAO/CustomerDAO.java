@@ -1,9 +1,7 @@
-package lk.ijse.springfinalassignment.DAO;
+package lk.ijse.springassignment.dao;
 
-import lk.ijse.springfinalassignment.Entity.impl.CustomerEntity;
+import lk.ijse.springassignment.entity.impl.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CustomerDAO extends JpaRepository<CustomerEntity,String> {
+public interface CustomerDao extends JpaRepository<CustomerEntity,String> {
 }

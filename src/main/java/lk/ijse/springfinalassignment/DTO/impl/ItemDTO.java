@@ -1,16 +1,17 @@
-package lk.ijse.springfinalassignment.DTO.impl;
+package lk.ijse.springassignment.dto.impl;
 
-import lk.ijse.springfinalassignment.DTO.SuperDTO;
+import lk.ijse.springassignment.dto.ItemStatus;
+import lk.ijse.springassignment.dto.SuperDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class ItemDTO implements SuperDTO {
-    public String itemCode;
-    public String itemDesc;
-    public String itemQTY;
-    public String itemPrice;
+public class ItemDTO implements SuperDTO, ItemStatus {
+    private String itemCode;
+    private String itemName;
+    private int qtyOnHand;
+    private double unitPrice;
 }

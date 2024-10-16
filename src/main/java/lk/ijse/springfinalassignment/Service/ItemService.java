@@ -1,13 +1,14 @@
-package lk.ijse.springfinalassignment.Service;
+package lk.ijse.springassignment.service;
 
-import lk.ijse.springfinalassignment.DTO.impl.ItemDTO;
+import lk.ijse.springassignment.dto.ItemStatus;
+import lk.ijse.springassignment.dto.impl.ItemDTO;
 
 import java.util.List;
 
 public interface ItemService {
-    ItemDTO daveItem(ItemDTO itemDTO);
-    List<ItemDTO> getAllItems();
-    ItemDTO getItem(String itemCode);
-    void deleteItem(String itemCode);
-    void updateItem(ItemDTO itemDTO,String itemCode);
+    void saveItem(ItemDTO itemDTO);
+    void updateItem(String itemId,ItemDTO itemDTO);
+    void deleteItem(String itemId);
+    ItemStatus getItem(String itemId);
+    List<ItemDTO>getAllItem();
 }

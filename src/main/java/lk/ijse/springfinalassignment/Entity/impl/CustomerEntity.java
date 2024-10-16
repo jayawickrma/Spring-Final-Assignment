@@ -1,22 +1,26 @@
-package lk.ijse.springfinalassignment.Entity.impl;
+package lk.ijse.springassignment.entity.impl;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lk.ijse.springfinalassignment.Entity.SuperEntity;
+import jakarta.persistence.*;
+import lk.ijse.springassignment.entity.SuperEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+import java.util.List;
+
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "customer")
 public class CustomerEntity implements SuperEntity {
     @Id
-    public String customerId;
-    public String customerName;
-    public String customerAddress;
-    public String customerContact;
+    private String customerId;
+    private String firstName;
+    private String city;
+    private String email;
+    private String address;
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<OrderEntity>orderList;
+
 }

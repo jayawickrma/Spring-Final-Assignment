@@ -1,17 +1,18 @@
-package lk.ijse.springfinalassignment.DTO.impl;
+package lk.ijse.springassignment.dto.impl;
 
-import jakarta.persistence.Access;
-import lk.ijse.springfinalassignment.DTO.SuperDTO;
+import lk.ijse.springassignment.dto.CustomerStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class CustomerDTO implements SuperDTO {
-    public String customerId;
-    public String customerName;
-    public String customerAddress;
-    public String customerContact;
+public class CustomerDTO implements CustomerStatus {
+    private String customerId;
+    private String firstName;
+    private String city;
+    private String email;
+    private String address;
+
 }

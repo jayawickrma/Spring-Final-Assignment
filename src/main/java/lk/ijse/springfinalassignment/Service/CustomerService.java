@@ -1,13 +1,14 @@
-package lk.ijse.springfinalassignment.Service;
+package lk.ijse.springassignment.service;
 
-import lk.ijse.springfinalassignment.DTO.impl.CustomerDTO;
+import lk.ijse.springassignment.dto.CustomerStatus;
+import lk.ijse.springassignment.dto.impl.CustomerDTO;
 
 import java.util.List;
 
 public interface CustomerService {
-    CustomerDTO saveCustomer(CustomerDTO customerDTO);
-    List<CustomerDTO> getAllCustomers();
-    CustomerDTO getCustomer(String customerId);
+    void saveCustomer(CustomerDTO customerDTO);
+    List<CustomerDTO>getAllCustomers();
+    CustomerStatus getCustomer(String customerId);
     void deleteCustomer(String customerId);
-    void updateCustomer(CustomerDTO customerDTO,String customerId);
+    void updateCustomer(String customerId,CustomerDTO customerDTO);
 }

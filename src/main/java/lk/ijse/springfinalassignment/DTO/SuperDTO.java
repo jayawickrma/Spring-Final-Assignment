@@ -1,4 +1,4 @@
-package lk.ijse.springfinalassignment.DTO;
+package lk.ijse.springassignment.dto;
 
 public interface SuperDTO {
 }

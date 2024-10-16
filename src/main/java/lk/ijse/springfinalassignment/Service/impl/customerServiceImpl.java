@@ -1,57 +1,91 @@
-package lk.ijse.springfinalassignment.Service.impl;
+package lk.ijse.springassignment.service.impl;
 
-import jakarta.persistence.Table;
 import jakarta.transaction.Transactional;
-import lk.ijse.springfinalassignment.DAO.CustomerDAO;
-import lk.ijse.springfinalassignment.DTO.impl.CustomerDTO;
-import lk.ijse.springfinalassignment.Entity.impl.CustomerEntity;
-import lk.ijse.springfinalassignment.Exeptions.DataPersistExeption;
-import lk.ijse.springfinalassignment.Service.CustomerService;
-import lk.ijse.springfinalassignment.Utill.Mapping;
+import lk.ijse.springassignment.customeStatusCode.SelectedUserAndNoteErroStatus;
+import lk.ijse.springassignment.dao.CustomerDao;
+import lk.ijse.springassignment.dto.CustomerStatus;
+import lk.ijse.springassignment.dto.impl.CustomerDTO;
+import lk.ijse.springassignment.entity.impl.CustomerEntity;
+import lk.ijse.springassignment.exception.DataPersistException;
+import lk.ijse.springassignment.exception.CustomerNotFoundException;
+import lk.ijse.springassignment.service.CustomerService;
+import lk.ijse.springassignment.util.Mapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
-public class customerServiceImpl implements CustomerService {
+public class CustomerServiceIMPL implements CustomerService {
     @Autowired
-    private CustomerDAO customerDAO;
+    private CustomerDao customerDao;
     @Autowired
     private Mapping mapping;
+    static Logger logger=LoggerFactory.getLogger(CustomerServiceIMPL.class);
     @Override
-    public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
-        CustomerEntity saveCustomer = customerDAO.save(mapping.toCustomerEntity(customerDTO));
-        if (saveCustomer==null){
-                throw new DataPersistExeption("something went wrong");
+    public void saveCustomer(CustomerDTO customerDTO) {
+        logger.info("Attempting to save customer With Id "+customerDTO.getCustomerId());
+        CustomerEntity saveCustomer= customerDao.save(mapping.tocustomerEntity(customerDTO));
+        if (saveCustomer == null) {
+            throw new DataPersistException("Customer not saved");
+        }else {
+            logger.info("Customer Saved Successfully !!!");
         }
-        return mapping.toCustomerDto(saveCustomer);
     }
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        List<CustomerEntity>allCustomer =customerDAO.findAll();
-        return mapping.allCustomers(allCustomer);
+        logger.info("Request to get all customers");
+      List<CustomerDTO> allCustomers=mapping.asCustomerDTOList(customerDao.findAll());
+      if (allCustomers.isEmpty()){
+          logger.warn("No Customer Found ");
+      }else {
+          logger.info("Number of customers found ",allCustomers.size());
+      }
+      return allCustomers;
     }
 
     @Override
-    public CustomerDTO getCustomer(String customerId) {
-        if (customerDAO.existsById(customerId)){
-        CustomerEntity selectCustoemr =customerDAO.getReferenceById(customerId);
-        return mapping.toCustomerDto(selectCustoemr);
-    }else {
-            System.out.println("You entered " +customerId + " as Customer Id Could not found");
+    public CustomerStatus getCustomer(String customerId) {
+        logger.info("Request to get customer");
+        if (customerDao.existsById(customerId)){
+            logger.info("Customer With Id Found "+customerId);
+            return mapping.tocustomerDTO(customerDao.getReferenceById(customerId));
+        }else {
+            logger.warn("Customer Id Not Found ",customerId);
+            return new SelectedUserAndNoteErroStatus(2,"Customer with id "+ customerId + "not found");
         }
-        return null;
     }
 
     @Override
     public void deleteCustomer(String customerId) {
-            customerDAO.deleteById(customerId);
+        logger.info("Request to delete customer "+customerId);
+        Optional<CustomerEntity> exitsCustomer = customerDao.findById(customerId);
+        logger.error("Customer Id Not Found "+customerId);
+        if (!exitsCustomer.isPresent()){
+            throw new CustomerNotFoundException("Customer with id "+ customerId + "not found");
+        }else {
+            customerDao.deleteById(customerId);
+            logger.info("Customer Delete Succesfully With id "+customerId);
+        }
     }
 
     @Override
-    public void updateCustomer(CustomerDTO customerDTO, String customerId) {
-
+    public void updateCustomer(String customerId, CustomerDTO customerDTO) {
+        logger.info("Attempting to update customer with Id "+customerId);
+        Optional<CustomerEntity> tmpCustomer = customerDao.findById(customerId);
+        if (tmpCustomer.isPresent()){
+            tmpCustomer.get().setFirstName(customerDTO.getFirstName());
+            tmpCustomer.get().setCity(customerDTO.getCity());
+            tmpCustomer.get().setEmail(customerDTO.getEmail());
+            tmpCustomer.get().setAddress(customerDTO.getAddress());
+            logger.info("Customer Update Successfully !!! with Id "+customerId);
+        }else {
+            logger.warn("Customer Not Found For Update With Id "+customerId);
+        }
     }
 }

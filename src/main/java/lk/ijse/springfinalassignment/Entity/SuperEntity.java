@@ -1,4 +1,4 @@
-package lk.ijse.springfinalassignment.Entity;
+package lk.ijse.springassignment.entity;
 
 import java.io.Serializable;
 
