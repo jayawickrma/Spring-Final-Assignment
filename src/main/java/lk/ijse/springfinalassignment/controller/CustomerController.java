@@ -34,7 +34,7 @@ public class CustomerController {
         customerDTO.setCustomerId(s);
         try {
             customerService.saveCustomer(customerDTO);
-            logger.info("Customer saved Successfully with id "+customerDTO.getCustomerId());
+            logger.info("Customer saved Successfully  "+customerDTO.getCustomerId());
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
             logger.warn("Fail To Saved Customer Bad Request> With Customer Code : "+customerDTO.getCustomerId());
