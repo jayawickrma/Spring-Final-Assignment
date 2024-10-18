@@ -4,7 +4,39 @@
 
 # Spring Assignment Phase-02 Project <br>
 
-This project is part of a class activity in the IJSE GDSE 67 batch. <br>
+# Point of Sale Backend with Spring
+
+
+
+## Overview
+The **Point of Sale (POS) Backend** is a high-performance RESTful API tailored for retail environments, specifically designed to streamline operations in grocery stores.
+
+Developed using Spring Boot and MySQL, this backend solution ensures seamless customer, product, order, and inventory management.
+
+## Key Features
+- **Item Management:** Create, update, retrieve, and delete items in the store's inventory.
+- **Customer Management:** Full CRUD operations for managing customer profiles.
+- **Order Management:** Place and manage customer orders, handle discounts, calculate subtotals, and track balances.
+- **Transactions:** Ensures data integrity with complex transactional operations during order processing.
+
+## Technologies Used
+- **Backend Framework:** Spring Boot with Jakarta EE integration
+- **Database:** MySQL
+- **Build Tool:** Maven
+- **Containerization:** Tomcat 11
+- **Java Version:** 21
+
+## Prerequisites
+- **Java 17 or higher**
+- **Maven 3.6+**
+- **MySQL 8.0+**
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+Contributions are welcome! Please see the [CONTRIBUTING](CONTRIBUTING) file for guidelines.
+
 
 ### Dependencies Used:
 1. **jakarta.servlet-api**
